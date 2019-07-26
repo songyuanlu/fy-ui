@@ -1,0 +1,18 @@
+@ui-toast: ~"@{ui}-toast";
+
+@{ui-toast} {
+  width: 80%;
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  transform: translate3d(0, -50%, 0);
+  text-align: center;
+  &-content{
+    display: inline-block;
+    padding: px2rem(10) px2rem(20);
+    color: @c-05;
+    border-radius: px2rem(4);
+    background-color: fade(@bg-mask, 50%);
+  }
+}
+ 

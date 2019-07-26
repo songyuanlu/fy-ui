@@ -1,0 +1,149 @@
+* {
+  padding: 0;
+  margin: 0;
+  border-style: none;
+  outline: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  padding-top: env(safe-area-inset-top);
+  padding-right: env(safe-area-inset-right);
+  padding-bottom: env(safe-area-inset-bottom);
+  padding-left: env(safe-area-inset-left);
+  font: px2rem(32)/1.5 "PingFang SC", "SFUIDisplay", "Noto Sans CJK SC", "Roboto", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  color: @c-02;
+  text-size-adjust: none;
+  background: @bg-body;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+button,
+select,
+input,
+textarea {
+  font: inherit;
+  color: inherit;
+  -webkit-appearance: none;
+}
+
+input,
+textarea {
+  user-select: initial;
+}
+
+::placeholder {
+  .mixin-placeholder();
+}
+
+input:disabled {
+  color: inherit;
+  background: transparent;
+  opacity: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+ img:not([src]){
+  opacity:0;
+}
+
+// /* 定义滚动条高宽及背景 高宽分别对应横竖滚动条的尺寸 */
+
+// ::-webkit-scrollbar {
+//   width: 5/@px2rem;
+//   height: 5/@px2rem;
+//   background-color: transparent;
+// }
+
+// /* 定义滚动条轨道 内阴影+圆角 */
+
+// ::-webkit-scrollbar-track {
+//   background-color: transparent;
+//   border-radius: 5/@px2rem;
+// }
+
+// /* 定义滑块 内阴影+圆角 */
+
+// ::-webkit-scrollbar-thumb {
+//   // background-color: fade(@c-00, 20%);
+//   border-radius: 5/@px2rem;
+// }
+
+@{ui} {
+  &-clear {
+    zoom: 1;
+  }
+
+  &-clear::after {
+    display: block;
+    height: 0;
+    overflow: hidden;
+    clear: both;
+    font-size: 0;
+    content: "";
+  }
+
+  &-fl {
+    float: left !important;
+  }
+
+  &-fr {
+    float: right !important;
+  }
+
+  &-tal {
+    text-align: left !important;
+  }
+
+  &-tac {
+    text-align: center !important;
+  }
+
+  &-tar {
+    text-align: right !important;
+  }
+
+  &-mask {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2000;
+    background: @bg-mask;
+  }
+
+  &-p-auto{
+    padding: @p-auto;
+  }
+  &-m-auto{
+    padding: @p-auto;
+  }
+}

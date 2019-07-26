@@ -1,0 +1,48 @@
+/**** padding, margin 边距值 *******************************************************/
+@p-auto: px2rem(30);
+@m-auto: px2rem(30);
+/**** padding, margin 边距值  end **************************************************/
+
+/**** 明确值 *******************************************************/
+@c-success: @c-52; //成功
+@c-warn: @c-53; //告警
+@c-error: @c-54; //失败
+
+@bg-primary: @c-51;
+@bg-info: @c-55;
+@bg-success: @c-52;
+@bg-warn: @c-53;
+@bg-error: @c-54;
+
+@bg-body: @c-09;
+@bg-model: @c-10;
+@bg-mask: fade(@c-11, 40%);
+
+@border: 1px solid @c-07; //边框
+@border-1: 1px solid fade(@c-07, 20%); //边框
+@border-2: 1px solid fade(@c-07, 10%); //边框
+@border-3: 1px solid fade(@c-07, 5%); //边框
+/**** 明确颜色值 end **************************************************/
+
+/**
+渐变色
+**/
+.linear-gradient(@deg: 180deg, @color1, @rate1, @color2, @rate2) {
+  background-image: linear-gradient(@deg, @color1 @rate1, @color2 @rate2);
+}
+
+.bg-linear(@type, @deg: 180deg, @opacity: 100%) when (@type =51) {
+  .linear-gradient(@deg, fade(@c-51-00, @opacity), 0%, fade(@c-51-01, @opacity), 100%);
+}
+
+.bg-linear(@type, @deg: 180deg, @opacity: 100%) when (@type =52) {
+  .linear-gradient(@deg, fade(@c-52-00, @opacity), 0%, fade(@c-52-01, @opacity), 100%);
+}
+
+.bg-linear(@type, @deg: 180deg, @opacity: 100%) when (@type =53) {
+  .linear-gradient(@deg, fade(@c-53-00, @opacity), 0%, fade(@c-53-01, @opacity), 100%);
+}
+
+.bg-linear(@type, @deg: 180deg, @opacity: 100%) when (@type =54) {
+  .linear-gradient(@deg, fade(@c-54-00, @opacity), 0%, fade(@c-54-01, @opacity), 100%);
+}

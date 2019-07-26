@@ -1,0 +1,55 @@
+@ui-dialog: ~"@{ui}-dialog";
+
+@{ui-dialog} {
+  &-mask {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  position: absolute;
+  width: px2rem(580);
+  border-radius: px2rem(8);
+  padding-top: px2rem(10);
+  background-color: @bg-model;
+
+  &-title {
+    text-align: center;
+    font-weight: bold;
+    font-size: px2rem(32);
+    padding: px2rem(30) px2rem(30) 0 px2rem(30);
+    color: @c-01;
+  }
+  &-content {
+    padding: px2rem(30) px2rem(30) px2rem(40) px2rem(30);
+  }
+  &-button {
+    display: flex;
+    border-top: @border;
+    
+    & > button {
+      flex: 1;
+      border-radius: 0;
+      color: @c-01;
+      & + button {
+        border-left: @border;
+      }
+      &.primary {
+        color: @c-51;
+      }
+    }
+
+    &.br {
+      display: block;
+
+      & > button {
+        flex: initial;
+        
+        & + button {
+          border-left: none;
+          border-top: @border;
+        }
+      }
+      
+    }
+  }
+}

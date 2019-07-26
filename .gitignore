@@ -27,7 +27,8 @@ bin-release/
 dist
 packages
 node_modules
+svg
 
 package-lock.json
-yarn.lock
+builder
 

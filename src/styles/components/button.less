@@ -1,0 +1,99 @@
+@ui-button: ~'@{ui}-button';
+
+// 默认按钮
+.mixin-button(@type) when (@type = 'default'){
+  color: @bg-primary;
+  border: 1px solid @bg-primary;
+  &[status=disabled]{
+    color: @c-51-0;
+    border-color: @c-51-0;
+  }
+  &[status=active],
+  &:hover{
+    color: @c-51-1;
+    border-color: @c-51-1;
+  }
+}
+// 主要按钮
+.mixin-button(@type)  when (@type = 'primary'){
+  background-color: @bg-primary;
+  &[status=disabled]{
+    background-color: @c-51-0;
+  }
+  &[status=active],
+  &:hover{
+    background-color: @c-51-1;
+  }
+}
+// 成功按钮
+.mixin-button(@type) when (@type = 'success'){
+  background-color: @bg-success;
+  &[status=disabled]{
+    background-color: @c-52-0;
+  }
+  &[status=active],
+  &:hover{
+    background-color: @c-52-1;
+  }
+}
+// 告警按钮
+.mixin-button(@type) when (@type = 'warn'){
+  background-color: @bg-warn;
+  &[status=disabled]{
+    background-color: @c-53-0;
+  }
+  &[status=active],
+  &:hover{
+    background-color: @c-53-1;
+  }
+}
+// 危险按钮
+.mixin-button(@type) when (@type = 'error'){
+  background-color: @bg-error;
+  &[status=disabled]{
+    background-color: @c-54-0;
+  }
+  &[status=active],
+  &:hover{
+    background-color: @c-54-1;
+  }
+}
+// 信息按钮
+.mixin-button(@type) when (@type = 'info'){
+  background-color: @bg-info;
+  &[status=disabled]{
+    background-color: @c-55-0;
+  }
+  &[status=active],
+  &:hover{
+    background-color: @c-55-1;
+  }
+}
+
+@{ui-button} {
+  width: 100%;
+  height: px2rem(90);
+  font-size: px2rem(32);
+  color: @c-05;
+  border-radius: px2rem(8);
+  background: none;
+  &-default{
+    .mixin-button('default')
+  }
+  &-primary{
+    .mixin-button('primary');
+  }
+  &-success{
+    .mixin-button('success');
+  }
+  &-warn{
+    .mixin-button('warn');
+  }
+  &-error{
+    .mixin-button('error');
+  }
+  &-info{
+    .mixin-button('info');
+  }
+
+}
