@@ -22,7 +22,7 @@
     "require-dir": "^1.2.0"
   },
   "dependencies": {
-    "element-ui": "^2.8.2"
+    
   },
   "browser": [
     "chrome >= 40"
