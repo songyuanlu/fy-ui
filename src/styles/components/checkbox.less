@@ -1,6 +1,7 @@
-@ui-radio: ~"@{ui}-radio";
+@ui-checkbox: ~"@{ui}-checkbox";
 
-@{ui-radio} {
+@{ui-checkbox} {
+  display: inline-block;
   &-input {
     display: inline-block;
     vertical-align: middle;
@@ -12,7 +13,7 @@
     position: relative;
     text-align: center;
 
-    input[type=radio]{
+    input[type=checkbox]{
       position: absolute;
       top: 0;
       right: 0;
@@ -26,14 +27,15 @@
       border-color: @c-51;
       
       &::before {
-        content: "";
-        display: inline-block;
-        vertical-align: top;
-        margin-top: px2rem(5);
-        width: px2rem(26);
-        height: px2rem(26);
-        border-radius: 100%;
-        background-color: @c-51;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        font-size: px2rem(44);
+        line-height: px2rem(36);
+        font-family: "iconfont";
+        content: "\e616";
+        transform: translate3d(-50%, -50% ,0);
+        color: @c-51;
       }
     }
 
@@ -43,9 +45,7 @@
       
       &.checked {
         &::before {
-          content: "";
-          display: inline-block;
-          background-color: @c-08;
+          color: @c-08;
         }
       }
 
