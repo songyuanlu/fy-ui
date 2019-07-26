@@ -1,0 +1,58 @@
+@ui-switch: ~"@{ui}-switch";
+
+@{ui-switch} {
+  display: inline-block;
+  vertical-align: middle;
+  min-width: px2rem(80);
+  height: px2rem(40);
+  padding: px2rem(2) px2rem(15);
+  line-height: px2rem(36);
+  border-radius: px2rem(40);
+  cursor: pointer;
+  position: relative;
+  color: @c-00;
+  font-size: px2rem(24);
+  text-align: right;
+  background-color: @c-08;
+  transition: background-color .3s;
+
+  &::before {
+    content: "";
+    display: inline-block;
+    position: absolute;
+    top: px2rem(2);
+    left: px2rem(2);
+    width: px2rem(36);
+    height: px2rem(36);
+    border-radius: 100%;
+    background-color: @c-00;
+    transition: transform .3s;
+  }
+  
+  & &-text {
+    > span:nth-child(1){
+      display: none;
+    }
+  }
+
+  &.checked {
+    text-align: left;
+    background-color: @c-51;
+    
+    & @{ui-switch}-text {
+      > span:nth-child(1){
+        display: initial;
+      }
+
+      > span:nth-child(2){
+        display: none;
+      }
+    }
+    
+
+    &::before {
+      color: @c-51;
+      transform: translate3d(px2rem(40), 0, 0);
+    }
+  }
+}
