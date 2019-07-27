@@ -5,9 +5,10 @@ const gulp = require('gulp');
 const cleanCSS = require('gulp-clean-css');
 const less = require('gulp-less');
 const rename = require('gulp-rename');
-const autoprefixer = require('gulp-autoprefixer');
+// const autoprefixer = require('gulp-autoprefixer');
+const postcss = require('gulp-postcss');
 const plumber = require('gulp-plumber');
-const packageJSON = require('./package.json');
+// const packageJSON = require('./package.json');
 const findThemes = require('./builder/utils/find-themes');
 
 const configPath = {
@@ -35,16 +36,11 @@ const configLess = {
   // 全量样式文件入口
   all: configPath.styles + '/export/index.less',
   // less编译插件
-  plugin: [
-    autoprefixer({
-      browsers: packageJSON.browsers
-    }),
-    {
-      install(ls, pluginManager, functions) {
-        functions.add('px2rem', options => `${options.value / 75}rem`);
-      }
+  plugin: [{
+    install(ls, pluginManager, functions) {
+      functions.add('px2rem', options => `${options.value / 75}rem`);
     }
-  ]
+  }]
 };
 
 
@@ -84,6 +80,7 @@ function buildCommon() {
     .pipe(less({
       plugins: configLess.plugin
     }))
+    .pipe(postcss())
     .pipe(cleanCSS())
     .pipe(rename(options => {
       console.log('buildCommon -------')
@@ -111,6 +108,7 @@ function buildAll() {
     .pipe(less({
       plugins: configLess.plugin
     }))
+    .pipe(postcss())
     .pipe(cleanCSS())
     .pipe(rename(options => {
       console.log('buildAll -------')
@@ -136,6 +134,7 @@ function buildComponents() {
     .pipe(less({
       plugins: configLess.plugin
     }))
+    .pipe(postcss())
     .pipe(cleanCSS())
     .pipe(rename(options => {
       console.log('buildComponents -------')

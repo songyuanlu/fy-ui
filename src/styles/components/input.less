@@ -1,0 +1,48 @@
+@ui-input: ~"@{ui}-input";
+
+@{ui-input} {
+  height: px2rem(70);
+  border: @border;
+  border-radius: px2rem(4);
+  position: relative;
+
+  input {
+    padding: px2rem(0) px2rem(10);
+    background: none;
+    height: 100%;
+  }
+  
+  &-search,
+  &-date {
+    &::before {
+      position: absolute;
+      top: 50%;
+      color: @c-04;
+      transform: translate3d(0, -50% ,0);
+      pointer-events: none;
+    }
+  }
+  &-search {
+    input {
+      padding-left: px2rem(50);
+    }
+
+    &::before {
+      left: px2rem(10);
+      .fonts-icon("\e62b");
+    }
+  }
+
+  &-date {
+    input {
+      padding-right: px2rem(50);
+    }
+
+
+    &::before {
+      right: px2rem(10);
+      .fonts-icon("\e62c");
+    }
+  }
+}
+
