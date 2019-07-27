@@ -1,0 +1,50 @@
+@ui-tips: ~"@{ui}-tips";
+
+@{ui-tips} {
+  font-size: px2rem(28);
+  padding: px2rem(10) px2rem(20);
+  border-radius: px2rem(8);
+  color: @c-info;
+  background-color: fade(@bg-info, 20%);
+  display: flex;
+  align-items: center;
+
+  &-success {
+    color: @c-success;
+    background-color: fade(@bg-success, 20%);
+  }
+
+  &-warn {
+    color: @c-warn;
+    background-color: fade(@bg-warn, 20%);
+  }
+
+  &-error {
+    color: @c-error;
+    background-color: fade(@bg-error, 20%);
+  }
+
+  & &-content {
+    padding: 0 px2rem(8);
+  }
+
+  & &-icon {
+    font-size: px2rem(32);
+  }
+
+  & &-title {
+  }
+
+  & &-desc {
+    padding-top: px2rem(5);
+  }
+
+  &&-has-desc {
+    @{ui-tips}-icon {
+      font-size: px2rem(52);
+    }
+    @{ui-tips}-title {
+      font-weight: bold;
+    }
+  }
+}
